@@ -26,9 +26,9 @@ import com.telusko.ecom_proj.model.Product;
 @RequestMapping("api")
 public class ProductController {
 	
-	ProductService service;
+	private final ProductService service;
 	
-	@Autowired
+//	@Autowired
 	public ProductController(ProductService service) {
 		this.service = service;
 	}
@@ -59,9 +59,10 @@ public class ProductController {
 	@GetMapping("/product/{productId}/image")
 	public ResponseEntity<byte[]> getImageByProductId(@PathVariable int productId) {
 		Product product = service.getProductById(productId);
-		byte[] imageFile = product.getImageDate();
+		byte[] imageFile = product.getImageData();
 		
 		return ResponseEntity.ok()
+				.header("Content-Type", product.getImageType())
 				.body(imageFile);
 	}
 	

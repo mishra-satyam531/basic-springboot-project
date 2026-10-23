@@ -27,7 +27,7 @@ public class Product {
 	private String imageName;
 	private String imageType;
 	@Lob
-	private byte[] imageDate;
+	private byte[] imageData;
 	
 
 	public Product() {
@@ -63,12 +63,12 @@ public class Product {
 		this.imageType = imageType;
 	}
 	
-	public byte[] getImageDate() {
-		return imageDate;
+	public byte[] getImageData() {
+		return imageData;
 	}
 	
-	public void setImageDate(byte[] imageDate) {
-		this.imageDate = imageDate;
+	public void setImageData(byte[] imageData) {
+		this.imageData = imageData;
 	}
 	
 	public Integer getId() {
